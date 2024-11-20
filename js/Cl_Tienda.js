@@ -24,6 +24,24 @@ export default class Cl_Tienda {
 
     }
 
+    modificarVenta(factura) {
+        factura = +factura;
+        let indexFactura = -1;
+        for (let i = 0; i < this.ventas.length; i++) {
+            if (this.ventas[i].factura == factura) {
+                indexFactura = i;
+            }
+        }
+        if (indexFactura !== -1) {
+            let cliente = prompt("Ingrese el nombre del cliente");
+            let factura = prompt("Ingrese el número de la factura");
+            let costo = prompt("Ingrese el costo");
+            let cnArticulos = prompt("Ingrese la cantidad de artículos");
+            this.ventas.splice(indexFactura, 1, new Cl_Venta(cliente, factura, costo, cnArticulos));
+            return indexFactura !==-1;
+        }
+    }
+
     montoapagar(venta) {
         return venta.montototal() + (venta.montototal() * (this.porcincremento / 100)); ;
     }

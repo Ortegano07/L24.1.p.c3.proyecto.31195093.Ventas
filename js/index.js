@@ -40,6 +40,21 @@ let eliminarVenta = (tienda) => {
     
 }
 
+let modificarVenta = (tienda) => {
+    let factura = prompt("Ingrese el número de la factura");
+    if (tienda.modificarVenta(factura)){
+        alert(`Se modifico la venta ${factura}`);}
+        else
+        alert(`No existe la venta ${factura}`);
+ }
+
+let listaVentas = (tienda) => {
+    salida.innerHTML = "";
+    tienda.ventas.forEach(venta => {
+        salida.innerHTML += `${venta.cliente} - ${venta.factura} - ${venta.costo} - ${venta.cnArticulos} <br>`
+    })}
+
+
         const tienda = new Cl_Tienda(Dt_Tienda.montocaja, Dt_Tienda.porcincremento);
 Dt_Venta.forEach(venta => tienda.agregarVenta(new Cl_Venta(venta.cliente, venta.factura, venta.costo, venta.cnArticulos)));
 let salida = document.getElementById("salida");
@@ -54,7 +69,7 @@ let opcion = prompt("Ingrese una opcion:");
                 eliminarVenta(tienda);
                 break;
             case "3":
-                this.tienda.modificarVenta();
+                modificarVenta(tienda);
                 break;
             case "4":
                 salida.innerHTML = `Monto final en caja: ${tienda.montofinalcaja()}`;
@@ -64,6 +79,9 @@ let opcion = prompt("Ingrese una opcion:");
                 break;
             case "6":
                 salida.innerHTML = `Clientes que solo llevaron 1 articulo: ${tienda.clientequepagounarticulo()}`;
+                break;
+            case "7":
+                listaVentas(tienda);
                 break;
             default:
                 alert("Opcion incorrecta");

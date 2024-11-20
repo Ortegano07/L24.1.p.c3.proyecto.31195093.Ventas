@@ -35,7 +35,7 @@ let agregarVenta = (tienda) => {
 let eliminarVenta = (tienda) => {
     let factura = prompt("Ingrese el número de la factura");
     if (tienda.eliminarVenta(factura)){
-        alert(`Se elimino la venta ${factura}`);}
+        window.alert(`Se elimino la venta ${factura}`);}
     else alert(`No existe la venta ${factura}`);
     
 }
@@ -43,9 +43,9 @@ let eliminarVenta = (tienda) => {
 let modificarVenta = (tienda) => {
     let factura = prompt("Ingrese el número de la factura");
     if (tienda.modificarVenta(factura)){
-        alert(`Se modifico la venta ${factura}`);}
+        window.alert(`Se modifico la venta ${factura}`);}
         else
-        alert(`No existe la venta ${factura}`);
+        window.alert(`No existe la venta ${factura}`);
  }
 
 let listaVentas = (tienda) => {
@@ -84,7 +84,7 @@ let opcion = prompt("Ingrese una opcion:");
                 listaVentas(tienda);
                 break;
             default:
-                alert("Opcion incorrecta");
+                window.alert("Opcion incorrecta");
                 break;
         }
 

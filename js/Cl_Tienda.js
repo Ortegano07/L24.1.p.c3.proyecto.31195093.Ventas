@@ -1,3 +1,4 @@
+import Cl_Venta from "./Cl_Venta.js";
 export default class Cl_Tienda {
     constructor(montocaja, porcincremento) {
         this.ventas = [];
